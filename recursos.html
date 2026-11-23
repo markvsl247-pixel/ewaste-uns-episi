@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agotamiento de Recursos Naturales - EPISI</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body { 
+            background-color: #f4f6f5; 
+            color: #2c3e50; 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .layout-dividido {
+            display: flex; gap: 40px; width: 94%; max-width: 1600px;
+            margin: 30px auto; align-items: flex-start;
+        }
+        .columna-izquierda { width: 75%; background: transparent; padding: 0 10px; }
+        .columna-derecha {
+            width: 25%; background: #ffffff; padding: 25px; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;
+            position: sticky; top: 25px;
+        }
+
+        h1 { color: #1b4332; font-size: 2.3rem; margin-bottom: 20px; margin-top: 0; font-weight: 800; }
+        h2 { color: #2d6a4f; font-size: 1.5rem; margin-top: 35px; margin-bottom: 18px; }
+        .titulo-noticias { color: #1b4332; font-size: 1.2rem; margin-bottom: 18px; border-bottom: 2px solid #52b788; padding-bottom: 8px; }
+        p { font-size: 1.08rem; color: #444; line-height: 1.8; margin-bottom: 20px; }
+
+        .img-destacada { width: 100%; height: 380px; object-fit: cover; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); }
+
+        /* Cuadrícula interactiva de minería urbana */
+        .grid-minerales { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .mineral-card {
+            background: #f8f9fa; border: 2px solid #e2e8f0; border-radius: 10px;
+            padding: 18px; text-align: center; cursor: pointer; transition: all 0.25s ease;
+        }
+        .mineral-card:hover { border-color: #2d6a4f; transform: translateY(-4px); background: #edf7f2; }
+        .mineral-card h4 { color: #1b4332; margin: 10px 0 8px 0; font-size: 1.1rem; }
+        .mineral-detalle { display: none; font-size: 0.9rem; color: #333; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #cbd5e1; }
+        .mineral-card.revelado .mineral-detalle { display: block; }
+
+        /* Tabla de cifras */
+        .tabla-cifras {
+            width: 100%; border-collapse: collapse; margin: 30px 0 12px 0;
+            background-color: #ffffff; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+        .tabla-cifras th, .tabla-cifras td { padding: 15px 18px; text-align: left; border-bottom: 1px solid #e2e8f0; font-size: 1rem; }
+        .tabla-cifras th { background-color: #558672; color: #ffffff; font-weight: 700; }
+        .tabla-cifras tr:last-child td { border-bottom: none; }
+        .tabla-cifras tr:nth-child(even) { background-color: #f8f9fa; }
+        .cifra-destacada { font-weight: 800; color: #020805; font-size: 1.08rem; }
+        .fuente-tabla { font-size: 0.88rem; color: #64748b; font-style: italic; margin-bottom: 30px; }
+
+        .card-noticia-lateral {
+            display: block; background: #f8f9fa; border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 12px; margin-bottom: 16px; text-decoration: none; color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-noticia-lateral:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); border-color: #52b788; }
+        .card-noticia-lateral img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+        .card-noticia-lateral h4 { font-size: 0.95rem; color: #0f172a; margin: 0 0 6px 0; line-height: 1.35; }
+        .card-noticia-lateral span { font-size: 0.8rem; color: #2d6a4f; font-weight: 600; }
+
+        @media (max-width: 992px) {
+            .layout-dividido { flex-direction: column; width: 95%; }
+            .columna-izquierda, .columna-derecha { width: 100%; }
+            .columna-derecha { position: static; margin-top: 30px; }
+            .grid-minerales { grid-template-columns: 1fr; }
+            .img-destacada { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar" style="position: relative;">
+        <div class="logo"><a href="pre_aplicacion.html">♻️ RC/e-waste-UNS EPISI <span>EPISI</span></a></div>
+        <div class="boton-nav"><a href="pre_aplicacion.html" class="btn-outline">← Volver al Inicio</a></div>
+    </header>
+
+    <div class="layout-dividido">
+        <main class="columna-izquierda">
+            <h1>Agotamiento de recursos naturales</h1>
+            
+            <img src="ab.jpg" alt="Minería urbana y recuperación de metales" class="img-destacada">
+
+            <p>
+                La fabricación masiva de dispositivos tecnológicos demanda minerales críticos no renovables. Al no reciclar los RAEE, se desperdician reservas valiosas de metales preciosos, forzando la sobreexplotación minera de la tierra.
+            </p>
+
+            <h2>Cifras globales de valor económico y pérdida de metales</h2>
+            <table class="tabla-cifras">
+                <thead>
+                    <tr>
+                        <th>Indicador de Recursos</th>
+                        <th>Cifra Registrada</th>
+                        <th>Detalle y Fuente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Valor anual de metales no recuperados en RAEE</strong></td>
+                        <td><span class="cifra-destacada">91 mil millones de dólares</span></td>
+                        <td>Valor estimado en oro, plata, cobre y hierro que se desecha cada año a nivel mundial sin valorización. <em>(Fuente: UNITAR)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Demanda de minerales para transición energética</strong></td>
+                        <td><span class="cifra-destacada">+300% hacia 2030</span></td>
+                        <td>Incremento proyectado en la necesidad de litio, cobalto y níquel para la fabricación de dispositivos y baterías. <em>(Fuente: Agencia Internacional de Energía)</em></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="fuente-tabla">Nota: La minería urbana representa la alternativa más sostenible para abastecer la industria tecnológica sin degradar nuevos ecosistemas.</p>
+
+            <h2>Minería Urbana: Haz clic en cada tarjeta</h2>
+            <div class="grid-minerales">
+                <div class="mineral-card" onclick="this.classList.toggle('revelado')">
+                    <span style="font-size: 2rem;">📱</span>
+                    <h4>1 Tonelada de Celulares</h4>
+                    <span style="font-size: 0.8rem; color: #2d6a4f;">(Clic para ver)</span>
+                    <div class="mineral-detalle">
+                        Contiene hasta <strong>300 gramos de oro</strong>, además de plata y paladio de alta pureza.
+                    </div>
+                </div>
+
+                <div class="mineral-card" onclick="this.classList.toggle('revelado')">
+                    <span style="font-size: 2rem;">🔌</span>
+                    <h4>Cables y Placas</h4>
+                    <span style="font-size: 0.8rem; color: #2d6a4f;">(Clic para ver)</span>
+                    <div class="mineral-detalle">
+                        Permiten recuperar <strong>cobre</strong> ahorrando hasta un 85% de energía frente a la minería tradicional.
+                    </div>
+                </div>
+
+                <div class="mineral-card" onclick="this.classList.toggle('revelado')">
+                    <span style="font-size: 2rem;">🔋</span>
+                    <h4>Baterías</h4>
+                    <span style="font-size: 0.8rem; color: #2d6a4f;">(Clic para ver)</span>
+                    <div class="mineral-detalle">
+                        Aportan <strong>litio y cobalto</strong> indispensables para la fabricación de nuevas baterías.
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="columna-derecha">
+            <h3 class="titulo-noticias">Noticias y Reportajes</h3>
+            <a href="https://vidayfuturo.pe/80-de-basura-electronica-en-peru-no-se-recicla-que-es-la-mineria-urbana-y-por-que-es-clave/" target="_blank" rel="noopener noreferrer" class="card-noticia-lateral">
+                <img src="1.jpg" alt="..">
+                <h4>80% de basura electrónica en Perú no se recicla: ¿qué es la minería urbana y por qué es clave?</h4>
+                <span>Leer noticia completa →</span>
+            </a>
+        </aside>
+    </div>
+</body>
+</html>

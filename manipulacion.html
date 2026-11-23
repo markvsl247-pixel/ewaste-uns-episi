@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación Segura de E-WASTE - EPISI</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body { 
+            background-color: #fdf8f6; 
+            color: #1e293b; 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .layout-dividido {
+            display: flex; gap: 40px; width: 94%; max-width: 1600px;
+            margin: 30px auto; align-items: flex-start;
+        }
+        .columna-izquierda { width: 75%; background: transparent; padding: 0 10px; }
+        .columna-derecha {
+            width: 25%; background: #ffffff; padding: 25px; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;
+            position: sticky; top: 25px;
+        }
+
+        h1 { color: #9a3412; font-size: 2.3rem; margin-bottom: 20px; margin-top: 0; font-weight: 800; }
+        h2 { color: #c2410c; font-size: 1.5rem; margin-top: 35px; margin-bottom: 18px; }
+        .titulo-noticias { color: #9a3412; font-size: 1.2rem; margin-bottom: 18px; border-bottom: 2px solid #fdba74; padding-bottom: 8px; }
+        p { font-size: 1.08rem; color: #475569; line-height: 1.8; margin-bottom: 20px; }
+
+        .img-destacada { width: 100%; height: 380px; object-fit: cover; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); }
+
+        /* Acordeones interactivos en tonos cálidos/ámbar */
+        .acordeon-seguridad {
+            background: #ffffff; border: 1px solid #fed7aa; border-radius: 10px;
+            margin-bottom: 15px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        .acordeon-seguridad:hover { border-color: #f97316; }
+        .acordeon-seguridad summary {
+            padding: 18px 22px; font-weight: 700; color: #9a3412; cursor: pointer;
+            list-style: none; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem;
+        }
+        .acordeon-seguridad summary::after { content: '+'; font-size: 1.4rem; color: #c2410c; font-weight: bold; }
+        .acordeon-seguridad[open] summary::after { content: '−'; }
+        .acordeon-contenido {
+            padding: 0 22px 22px 22px; color: #475569; font-size: 1.02rem; line-height: 1.7;
+            border-top: 1px solid #ffedd5; background-color: #fffaf5;
+        }
+
+        /* Botón CTA Chimbote */
+        .cta-box {
+            background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%);
+            color: white; padding: 25px; border-radius: 12px; margin: 35px 0;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 6px 20px rgba(194, 65, 12, 0.25);
+        }
+        .cta-box h3 { margin: 0 0 8px 0; font-size: 1.3rem; color: #ffffff; }
+        .cta-box p { margin: 0; color: #ffedd5; font-size: 1rem; }
+        .btn-chimbote {
+            background: #ffffff; color: #9a3412; padding: 12px 24px; border-radius: 8px;
+            font-weight: 800; text-decoration: none; transition: transform 0.2s, background 0.2s;
+            white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .btn-chimbote:hover { background: #fff7ed; transform: scale(1.05); }
+
+        .card-noticia-lateral {
+            display: block; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 12px; margin-bottom: 16px; text-decoration: none; color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-noticia-lateral:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); border-color: #f97316; }
+        .card-noticia-lateral img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+        .card-noticia-lateral h4 { font-size: 0.95rem; color: #0f172a; margin: 0 0 6px 0; line-height: 1.35; }
+        .card-noticia-lateral span { font-size: 0.8rem; color: #c2410c; font-weight: 600; }
+
+        @media (max-width: 992px) {
+            .layout-dividido { flex-direction: column; width: 95%; }
+            .columna-izquierda, .columna-derecha { width: 100%; }
+            .columna-derecha { position: static; margin-top: 30px; }
+            .cta-box { flex-direction: column; text-align: center; gap: 15px; }
+            .img-destacada { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar" style="position: relative;">
+        <div class="logo"><a href="pre_aplicacion.html">♻️  RC/e-waste-UNS EPISI <span>EPISI</span></a></div>
+        <div class="boton-nav"><a href="pre_aplicacion.html" class="btn-outline">← Volver al Inicio</a></div>
+    </header>
+
+    <div class="layout-dividido">
+        <main class="columna-izquierda">
+            <h1>Manipulación segura de los residuos electrónicos</h1>
+            
+            <img src="manipulacion-raee.jpg" alt="Manipulación y precauciones con dispositivos electrónicos" class="img-destacada">
+
+            <p>
+                La manipulación incorrecta de los aparatos electrónicos en desuso puede liberar sustancias nocivas o causar accidentes mecánicos y eléctricos. Es fundamental seguir protocolos de bioseguridad y prevención antes de su traslado a centros de acopio autorizados.
+            </p>
+
+            <h2>Precauciones críticas durante la manipulación </h2>
+
+            <details class="acordeon-seguridad" open>
+                <summary>⚠️ Prevención de rupturas en pantallas y tubos CRT</summary>
+                <div class="acordeon-contenido">
+                    Los monitores y televisores antiguos contienen tubos de vidrio con plomo sometidos a alto vacío. Una ruptura accidental puede dispersar polvo tóxico e implosionar fragmentos cortantes. Nunca deben romperse ni desarmarse de forma casera.
+                </div>
+            </details>
+
+            <details class="acordeon-seguridad">
+                <summary>🔋 Manejo de baterías hinchadas o dañadas de litio</summary>
+                <div class="acordeon-contenido">
+                    Las baterías de smartphones o laptops abombadas presentan riesgo inminente de cortocircuito, combustión espontánea o emisión de gases corrosivos. Deben aislarse con cinta en sus bornes y almacenarse en recipientes secos no metálicos.
+                </div>
+            </details>
+
+            <details class="acordeon-seguridad">
+                <summary>🛡️ Uso de EPP básico para almacenamiento temporal</summary>
+                <div class="acordeon-contenido">
+                    Al trasladar o agrupar equipos rotos, se recomienda el uso de guantes de nitrilo o carnaza y mascarillas para evitar el contacto directo con óxidos metálicos, polvo acumulado y residuos filosos.
+                </div>
+            </details>
+
+            
+            <div class="cta-box">
+                <div>
+                    <h3>Evita riesgos en casa</h3>
+                    <p>Entrega tus equipos sin desarmar a los operadores formales registrados en Chimbote.</p>
+                </div>
+                <a href="receptores-chimbote.html" class="btn-chimbote">Ver Receptores en Chimbote →</a>
+            </div>
+        </main>
+
+        <aside class="columna-derecha">
+            <h3 class="titulo-noticias">Seguridad y Salud</h3>
+            <a href="https://www.gob.pe/institucion/minam/informes-publicaciones/1503643-regimen-especial-de-gestion-y-manejo-de-residuos-de-aparatos-electricos-y-electronicos" target="_blank" rel="noopener noreferrer" class="card-noticia-lateral">
+                <img src="man.jpg" alt="Seguridad ambiental">
+                <h4>Régimen Especial de Gestión y Manejo de Residuos de Aparatos Eléctricos y Electrónicos</h4>
+                <span>Leer noticia completa →</span>
+            </a>
+        </aside>
+    </div>
+</body>
+</html>

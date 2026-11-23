@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conócenos - Equipo EPISI</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            background-color: #f4f7f6;
+            color: #1e293b;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .contenedor-principal {
+            width: 92%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        /* Título superior de la sección */
+        .encabezado-seccion {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .encabezado-seccion .badge {
+            background-color: #d8f3dc;
+            color: #1b4332;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .encabezado-seccion h1 {
+            color: #1b4332;
+            font-size: 2.1rem;
+            margin: 0 auto;
+            max-width: 900px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        /* Tarjeta contenedora principal estilo panel (como la referencia) */
+        .tarjeta-panel {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Columna Izquierda: Información de Asesoría y Botón WhatsApp */
+        .info-izq h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-izq .sub-texto {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 22px;
+        }
+        .info-izq p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* Lista de verificación */
+        .lista-checks {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .lista-checks li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #334155;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .lista-checks span.icono-check {
+            color: #16a34a;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Botón WhatsApp grande */
+        .btn-whatsapp-principal {
+            background-color: #22c55e;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 16px 24px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn-whatsapp-principal:hover {
+            background-color: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        /* Columna Derecha: Tarjetas secundarias de contacto / Datos */
+        .contacto-der h3 {
+            font-size: 1.15rem;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .grid-detalles-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .item-contacto {
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.2s;
+        }
+        .item-contacto:hover {
+            background: #f1f5f9;
+        }
+        .item-icono {
+            background: #e2e8f0;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .item-info span {
+            display: block;
+            font-size: 0.8rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .item-info strong, .item-info a {
+            font-size: 0.95rem;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .item-info a:hover {
+            color: #0284c7;
+            text-decoration: underline;
+        }
+
+        /* Sección Inferior: Listado de los 7 Integrantes del Ciclo */
+        .seccion-integrantes {
+            margin-top: 50px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        .seccion-integrantes h2 {
+            color: #1b4332;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+        .tabla-columnas-integrantes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .tarjeta-miembro {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .miembro-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .miembro-num {
+            background: #1b4332;
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .miembro-nombre {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .miembro-correo {
+            font-size: 0.85rem;
+            color: #0284c7;
+            text-decoration: none;
+            background: #f0f9ff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .miembro-correo:hover {
+            text-decoration: underline;
+        }
+
+        /* Diseño Responsivo para Celulares */
+        @media (max-width: 992px) {
+            .tarjeta-panel {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            .tabla-columnas-integrantes {
+                grid-template-columns: 1fr;
+            }
+            .encabezado-seccion h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación superior -->
+    <header class="navbar" style="position: relative;">
+        <div class="logo"><a href="pre_aplicacion.html">♻️ RC/e-waste-UNS <span>EPISI</span></a></div>
+        <div class="boton-nav"><a href="pre_aplicacion.html" class="btn-outline">← Volver al Inicio</a></div>
+    </header>
+
+    <main class="contenedor-principal">
+        
+        <!-- Título principal -->
+        <div class="encabezado-seccion">
+            <span class="badge">Segundo Ciclo • EPISI - UNS</span>
+            <h1>Conoce al equipo desarrollador y canales de asesoría oficial</h1>
+        </div>
+
+        <div class="tarjeta-panel">
+            
+            <!-- Columna Izquierda: Asesoría y WhatsApp -->
+            <div class="info-izq">
+                <h2>
+                    <span>👨‍🏫 Asesoría Académica</span> 
+                </h2>
+                <div class="sub-texto">Docente guía del proyecto de gestión RAEE</div>
+                <p>
+                    Analizaremos tus consultas técnicas y te brindaremos orientación sobre la implementación del portal web y estrategias de manejo de residuos según los estándares universitarios.
+                </p>
+
+                <ul class="lista-checks">
+                    <li><span class="icono-check">✓</span> Respuesta a la brevedad posible</li>
+                    <li><span class="icono-check">✓</span> Evaluación y revisión inicial</li>
+                    <li><span class="icono-check">✓</span> Soporte institucional sin compromiso</li>
+                </ul>
+
+                
+                <a href="https://wa.me/51943673116?text=Hola%20Profesor,%20le%20escribo%20desde%20el%20portal%20web%20de%20gesti%C3%B3n%20de%20RAEE%20-%20EPISI." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-whatsapp-principal">
+                    💬 Escribir al Asesor por WhatsApp →
+                </a>
+            </div>
+
+            <!-- Columna Derecha: Tarjetas secundarias de contacto -->
+            <div class="contacto-der">
+                <h3>También puedes contactarnos por:</h3>
+                
+                <div class="grid-detalles-contacto">
+                    
+                    
+                    <div class="item-contacto">
+                        <div class="item-icono">📞</div>
+                        <div class="item-info">
+                            <span>Teléfono / Celular</span>
+                            <strong>+51 943673116</strong>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="item-contacto">
+                        <div class="item-icono">✉️</div>
+                        <div class="item-info">
+                            <span>Email Institucional</span>
+                            <a href="mailto:episi.raee@uns.edu.pe">jmedina@uns.edu.pe</a>
+                        </div>
+                    </div>
+
+                    <!-- Ubicación -->
+                    <div class="item-contacto">
+                        <div class="item-icono">📍</div>
+                        <div class="item-info">
+                            <span>Ubicación</span>
+                            <strong>Universidad Nacional del Santa, Chimbote</strong>
+                        </div>
+                    </div>
+
+                    <!-- Horario -->
+                    <div class="item-contacto">
+                        <div class="item-icono">⏰</div>
+                        <div class="item-info">
+                            <span>Horario de Atención</span>
+                            <strong>7:00 – 20:00 h</strong>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Seccion de integrantes gsdbs-->
+        <div class="seccion-integrantes">
+            <h2>Integrantes del Grupo (Segundo Ciclo - EPISI)</h2>
+            
+            <div class="tabla-columnas-integrantes">
+                
+               
+                <div class="tarjeta-miembro">
+                    <div class="miembro-info">
+                        <span class="miembro-num">1</span>
+                        <p class="miembro-nombre">Huaraca Mendoza Elias Jharid</p>
+                    </div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=huaracaelias674@gmail.com" target="_blank" rel="noopener noreferrer" class="miembro-correo">✉️ Correo</a>
+                </div>
+
+                
+                <div class="tarjeta-miembro">
+                    <div class="miembro-info">
+                        <span class="miembro-num">2</span>
+                        <p class="miembro-nombre">Mejia Gonzales Jean Eznayde</p>
+                    </div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jeanpauleznayder@gmail.com" target="_blank" rel="noopener noreferrer" class="miembro-correo">✉️ Correo</a>
+                </div>
+
+               
+                <div class="tarjeta-miembro">
+                    <div class="miembro-info">
+                        <span class="miembro-num">3</span>
+                        <p class="miembro-nombre">Palomino Rojas Marco Andre</p>
+                    </div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=marcoandrepalominorojas@gmail.com " target="_blank" rel="noopener noreferrer" class="miembro-correo">✉️ Correo</a>
+                </div>
+
+               
+                <div class="tarjeta-miembro">
+                    <div class="miembro-info">
+                        <span class="miembro-num">4</span>
+                        <p class="miembro-nombre">Pineda Taype Marcelo Rodrigo</p>
+                    </div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=marcepineda2008@gmail." target="_blank" rel="noopener noreferrer" class="miembro-correo">✉️ Correo</a>
+                </div>
+
+               
+                <div class="tarjeta-miembro">
+                    <div class="miembro-info">
+                        <span class="miembro-num">5</span>
+                        <p class="miembro-nombre">Rodriguez Siccha Diego Valentino</p>
+                    </div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=diegorodriguez18032008@gmail.com " target="_blank" rel="noopener noreferrer" class="miembro-correo">✉️ Correo</a>
+                </div>
+
+                
+                <div class="tarjeta-miembro">
+                    <div class="miembro-info">
+                        <span class="miembro-num">6</span>
+                        <p class="miembro-nombre">Vargas Sevilla David Alexander</p>
+                    </div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=davidalexandervs2020@gmail.com " target="_blank" rel="noopener noreferrer" class="miembro-correo">✉️ Correo</a>
+                </div>
+
+                <
+                <div class="tarjeta-miembro" style="grid-column: span 2;">
+                    <div class="miembro-info">
+                        <span class="miembro-num">7</span>
+                        <p class="miembro-nombre">Vega Antonio Cristopher Alexander Rodrigo </p>
+                    </div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to= vegaantonio2007@gmail.com " target="_blank" rel="noopener noreferrer" class="miembro-correo">✉️ Correo</a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaminación del Suelo y Agua - EPISI</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Fondo general y tipografía fluida */
+        body { 
+            background-color: #f4f6f5; 
+            color: #2c3e50; 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Layout fluido de ancho completo (sin efecto de cuadro flotante) */
+        .layout-dividido {
+            display: flex;
+            gap: 40px;
+            width: 94%;
+            max-width: 1600px;
+            margin: 30px auto;
+            align-items: flex-start;
+        }
+
+        /* Columna izquierda (75%): Contenido principal integrado a la interfaz */
+        .columna-izquierda {
+            width: 75%;
+            background: transparent;
+            padding: 0 10px;
+        }
+
+        /* Columna derecha (25%): Panel lateral de noticias */
+        .columna-derecha {
+            width: 25%;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            position: sticky;
+            top: 25px;
+        }
+
+        /* Títulos sin líneas, solo espacios limpios */
+        h1 {
+            color: #1b4332;
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+            margin-top: 0;
+            font-weight: 800;
+        }
+        h2 {
+            color: #2d6a4f;
+            font-size: 1.5rem;
+            margin-top: 35px;
+            margin-bottom: 18px;
+        }
+        .titulo-noticias {
+            color: #1b4332;
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            border-bottom: 2px solid #52b788;
+            padding-bottom: 8px;
+        }
+        p {
+            font-size: 1.08rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Imagen principal estilizada */
+        .img-destacada {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Elementos Interactivos: Acordeón ampliado con más información */
+        .acordeon-item {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        .acordeon-item:hover {
+            border-color: #52b788;
+            box-shadow: 0 4px 12px rgba(82, 183, 136, 0.15);
+        }
+        .acordeon-item summary {
+            padding: 18px 22px;
+            font-weight: 700;
+            color: #1b4332;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        .acordeon-item summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: #2d6a4f;
+            font-weight: bold;
+        }
+        .acordeon-item[open] summary::after {
+            content: '−';
+        }
+        .acordeon-contenido {
+            padding: 0 22px 22px 22px;
+            color: #444;
+            font-size: 1.02rem;
+            line-height: 1.7;
+            border-top: 1px solid #f1f5f9;
+            background-color: #fafbfc;
+        }
+
+        /* Estilos para la tabla de cifras oficiales */
+        .tabla-cifras {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0 12px 0;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+        .tabla-cifras th, .tabla-cifras td {
+            padding: 15px 18px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1rem;
+        }
+        .tabla-cifras th {
+            background-color: #15bad4;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .tabla-cifras tr:last-child td {
+            border-bottom: none;
+        }
+        .tabla-cifras tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .cifra-destacada {
+            font-weight: 800;
+            color: #0d0503;
+            font-size: 1.08rem;
+        }
+        .fuente-tabla {
+            font-size: 0.88rem;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        /* Tarjetas de noticias en la barra derecha */
+        .card-noticia-lateral {
+            display: block;
+            background: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-noticia-lateral:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+            border-color: #52b788;
+        }
+        .card-noticia-lateral img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .card-noticia-lateral h4 {
+            font-size: 0.95rem;
+            color: #0f172a;
+            margin: 0 0 6px 0;
+            line-height: 1.35;
+        }
+        .card-noticia-lateral span {
+            font-size: 0.8rem;
+            color: #2d6a4f;
+            font-weight: 600;
+        }
+
+        /* Responsive para dispositivos móviles */
+        @media (max-width: 992px) {
+            .layout-dividido {
+                flex-direction: column;
+                width: 95%;
+            }
+            .columna-izquierda, .columna-derecha {
+                width: 100%;
+            }
+            .columna-derecha {
+                position: static;
+                margin-top: 30px;
+            }
+            .img-destacada { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar" style="position: relative;">
+        <div class="logo"><a href="pre_aplicacion.html">♻️ RC/e-waste-UNS EPISI <span>EPISI</span></a></div>
+        <div class="boton-nav"><a href="pre_aplicacion.html" class="btn-outline">← Volver al Inicio</a></div>
+    </header>
+
+    <div class="layout-dividido">
+        
+        <!-- COLUMNA IZQUIERDA (75%): CONTENIDO EXTENDIDO E INTERACTIVO -->
+        <main class="columna-izquierda">
+            <h1>Contaminación del suelo y agua por RAEE</h1>
+            
+            <img src="suelo-agua.png" alt="Impacto hídrico y de suelos por residuos electrónicos" class="img-destacada">
+
+            <p>
+                Cuando los aparatos eléctricos y electrónicos (AEE) obsoletos o averiados son descartados de manera inadecuada en botaderos informales, terrenos eriazos o mezcla de basura doméstica, pierden su condición de bienes útiles para convertirse en una fuente activa de contaminación ambiental conocida como <strong>E-WASTE</strong>.
+            </p>
+
+            <p>
+                Al quedar expuestos a la intemperie (lluvia, radiación solar y humedad), las carcasas plásticas y componentes internos se degradan físicamente. Este fenómeno desencadena la liberación de lixiviados —líquidos altamente tóxicos cargados de metales pesados— que se infiltran en el subsuelo, alterando las propiedades fisicoquímicas de la tierra y alcanzando gradualmente los mantos acuíferos subterráneos.
+            </p>
+
+            <h2>Cifras globales sobre RAEE y contaminación hídrica</h2>
+            <p>
+                La gestión deficiente de los residuos electrónicos provoca que millones de toneladas de plásticos y metales pesados terminen en vertederos no controlados, ríos y océanos:
+            </p>
+
+            <table class="tabla-cifras">
+                <thead>
+                    <tr>
+                        <th>Indicador / Impacto</th>
+                        <th>Cifra Registrada</th>
+                        <th>Descripción y Fuente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Generación mundial anual de RAEE</strong></td>
+                        <td><span class="cifra-destacada">62 millones de toneladas</span></td>
+                        <td>Volumen total generado en un año a nivel global, equivalente a llenar 1.55 millones de camiones de 40 toneladas. <em>(Fuente: ONU / UNITAR - Global E-waste Monitor)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>RAEE sin gestión formal ni reciclaje</strong></td>
+                        <td><span class="cifra-destacada">77.7% (48.2 millones de t)</span></td>
+                        <td>Porcentaje de residuos electrónicos que no se recolectan formalmente y terminan en botaderos, quemas o filtrándose hacia ríos y mares. <em>(Fuente: ONU / UNITAR)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plásticos de RAEE en flujos no controlados</strong></td>
+                        <td><span class="cifra-destacada">~14 millones de toneladas</span></td>
+                        <td>Plásticos con retardantes de flama bromados presentes en los RAEE mal gestionados que se fragmentan en microplásticos marinos. <em>(Fuente: PNUMA / Convenio de Basilea)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mercurio y plomo liberados al ambiente</strong></td>
+                        <td><span class="cifra-destacada">58 toneladas de mercurio y 45,000 t de plásticos con BFR</span></td>
+                        <td>Sustancias tóxicas liberadas anualmente por el desmantelamiento informal, contaminando cuencas hidrográficas y fauna marina. <em>(Fuente: OMS / ONU)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contaminación plástica en los océanos</strong></td>
+                        <td><span class="cifra-destacada">8 a 10 millones de toneladas/año</span></td>
+                        <td>Residuos sólidos y microplásticos (incluyendo fragmentos de carcasas y cables electrónicos) que llegan anualmente al mar desde las costas y ríos. <em>(Fuente: UNESCO / ONU Medio Ambiente)</em></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="fuente-tabla">
+                Nota: Las estimaciones exactas de vertido directo de RAEE al mar se integran dentro de los flujos de residuos no documentados (77.7%) que desembocan en cuencas hidrográficas y zonas costeras.
+            </p>
+
+            <h2>Explora a profundidad los contaminantes críticos</h2>
+            <p>Haz clic en cada componente químico para conocer su origen tecnológico y el daño específico que provoca:</p>
+
+            <details class="acordeon-item" open>
+                <summary>💧 Plomo (Pb) — Pantallas CRT, soldaduras y circuitos impresos</summary>
+                <div class="acordeon-contenido">
+                    <p><strong>Origen:</strong> Utilizado masivamente en la soldadura de componentes electrónicos y en el vidrio de tubos de rayos catódicos de televisores y monitores antiguos.</p>
+                    <p style="margin-bottom: 0;"><strong>Impacto ambiental y en salud:</strong> Al lixiviar hacia el suelo, es retenido por las capas superiores donde interfiere con la actividad microbiana agrícola. En seres humanos, actúa como una neurotoxina acumulativa que afecta el sistema nervioso, renal y hematopoyético.</p>
+                </div>
+            </details>
+
+            <details class="acordeon-item">
+                <summary>🔋 Cadmio (Cd) — Baterías recargables portátiles y semiconductores</summary>
+                <div class="acordeon-contenido">
+                    <p><strong>Origen:</strong> Presente en acumuladores de níquel-cadmio (Ni-Cd), interruptores antiguos y ciertos tipos de pigmentos termoplásticos.</p>
+                    <p style="margin-bottom: 0;"><strong>Impacto ambiental y en salud:</strong> Posee una alta movilidad en suelos ácidos. Es absorbido con gran facilidad por las raíces de las plantas, bioacumulándose en la cadena trófica y generando daños graves en el tejido óseo y tubular renal.</p>
+                </div>
+            </details>
+
+            <details class="acordeon-item">
+                <summary>🌡️ Mercurio (Hg) — Lámparas fluorescentes, pantallas planas y sensores</summary>
+                <div class="acordeon-contenido">
+                    <p><strong>Origen:</strong> Utilizado en la retroiluminación de pantallas LCD planas, interruptores de posición y celdas de conmutación.</p>
+                    <p style="margin-bottom: 0;"><strong>Impacto ambiental y en salud:</strong> Al entrar en contacto con cuerpos de agua, los microorganismos acuáticos lo transforman en metilmercurio, un compuesto orgánico altamente tóxico que se concentra en los organismos de la cadena alimentaria marina.</p>
+                </div>
+            </details>
+
+            <details class="acordeon-item">
+                <summary>🧪 Retardantes de Flama Bromados (BFR) — Plásticos y carcasas de computadoras</summary>
+                <div class="acordeon-contenido">
+                    <p><strong>Origen:</strong> Compuestos químicos añadidos a los plásticos de impresoras, CPUs y portátiles para reducir su inflamabilidad.</p>
+                    <p style="margin-bottom: 0;"><strong>Impacto ambiental y en salud:</strong> Son sustancias extremadamente persistentes en el medio acuático que actúan como disruptores endocrinos, alterando el equilibrio hormonal y reproductivo de la fauna silvestre.</p>
+                </div>
+            </details>
+        </main>
+
+        <!-- COLUMNA DERECHA (25%): TÍTULO Y LINKS DE NOTICIAS -->
+        <aside class="columna-derecha">
+            <h3 class="titulo-noticias">Noticias Relacionadas</h3>
+
+            <a href="https://www.pucp.edu.pe/climadecambios/noticias/raee-la-basura-electronica-que-crece-en-el-peru/" target="_blank" rel="noopener noreferrer" class="card-noticia-lateral">
+                <img src="Portada_-Infobae.jpg" alt="..">
+                <h4>RAEE: La basura electronica que crece en el Peru</h4>
+                <span>Leer noticia completa →</span>
+            </a>
+
+            <a href="https://actualidadambiental.pe/reportaje-revela-contaminacion-en-pantanos-de-villa-debido-a-desmonte-basura-y-quema-de-cables/" target="_blank" rel="noopener noreferrer" class="card-noticia-lateral">
+                <img src="nt1-1.jpg" alt="Suelos contaminados">
+                <h4>Reportaje revela contaminación en Pantanos de Villa debido a desmonte, basura y quema de cables</h4>
+                <span>Leer noticia completa →</span>
+            </a>
+        </aside>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contaminación de Aire y Cambio Climático - EPISI</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body { 
+            background-color: #f4f6f5; 
+            color: #2c3e50; 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .layout-dividido {
+            display: flex; gap: 40px; width: 94%; max-width: 1600px;
+            margin: 30px auto; align-items: flex-start;
+        }
+        .columna-izquierda { width: 75%; background: transparent; padding: 0 10px; }
+        .columna-derecha {
+            width: 25%; background: #ffffff; padding: 25px; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;
+            position: sticky; top: 25px;
+        }
+
+        h1 { color: #1b4332; font-size: 2.3rem; margin-bottom: 20px; margin-top: 0; font-weight: 800; }
+        h2 { color: #2d6a4f; font-size: 1.5rem; margin-top: 35px; margin-bottom: 18px; }
+        .titulo-noticias { color: #1b4332; font-size: 1.2rem; margin-bottom: 18px; border-bottom: 2px solid #52b788; padding-bottom: 8px; }
+        p { font-size: 1.08rem; color: #444; line-height: 1.8; margin-bottom: 20px; }
+
+        .img-destacada { width: 100%; height: 380px; object-fit: cover; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); }
+
+        /* Pestañas interactivas */
+        .tabs-botones { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        .tab-btn {
+            background: #e9ecef; border: none; padding: 10px 18px; border-radius: 8px;
+            font-weight: 700; color: #1b4332; cursor: pointer; transition: background 0.3s;
+        }
+        .tab-btn.activo, .tab-btn:hover { background: #2d6a4f; color: #ffffff; }
+        .tab-panel { background: #f8f9fa; padding: 22px; border-radius: 10px; border: 1px solid #e2e8f0; display: none; }
+        .tab-panel.activo { display: block; }
+
+        /* Tabla de cifras */
+        .tabla-cifras {
+            width: 100%; border-collapse: collapse; margin: 30px 0 12px 0;
+            background-color: #ffffff; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+        .tabla-cifras th, .tabla-cifras td { padding: 15px 18px; text-align: left; border-bottom: 1px solid #e2e8f0; font-size: 1rem; }
+        .tabla-cifras th { background-color: #1b4332; color: #ffffff; font-weight: 700; }
+        .tabla-cifras tr:last-child td { border-bottom: none; }
+        .tabla-cifras tr:nth-child(even) { background-color: #f8f9fa; }
+        .cifra-destacada { font-weight: 800; color: #100202; font-size: 1.08rem; }
+        .fuente-tabla { font-size: 0.88rem; color: #64748b; font-style: italic; margin-bottom: 30px; }
+
+        .card-noticia-lateral {
+            display: block; background: #f8f9fa; border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 12px; margin-bottom: 16px; text-decoration: none; color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-noticia-lateral:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); border-color: #52b788; }
+        .card-noticia-lateral img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+        .card-noticia-lateral h4 { font-size: 0.95rem; color: #0f172a; margin: 0 0 6px 0; line-height: 1.35; }
+        .card-noticia-lateral span { font-size: 0.8rem; color: #04180f; font-weight: 600; }
+
+        @media (max-width: 992px) {
+            .layout-dividido { flex-direction: column; width: 95%; }
+            .columna-izquierda, .columna-derecha { width: 100%; }
+            .columna-derecha { position: static; margin-top: 30px; }
+            .img-destacada { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar" style="position: relative;">
+        <div class="logo"><a href="pre_aplicacion.html">♻️  RC/e-waste-UNS EPISI<span>EPISI</span></a></div>
+        <div class="boton-nav"><a href="pre_aplicacion.html" class="btn-outline">← Volver al Inicio</a></div>
+    </header>
+
+    <div class="layout-dividido">
+        <main class="columna-izquierda">
+            <h1>Contaminación de aire y cambio climático</h1>
+            
+            <img src="images.jpg" alt="Emisiones tóxicas y quema informal de RAEE" class="img-destacada">
+
+            <p>
+                La gestión informal de los residuos electrónicos recurre frecuentemente a la incineración a cielo abierto de cables, carcasas plásticas y tarjetas para extraer metales valiosos. Esta combustión incompleta libera gases tóxicos y partículas en suspensión que deterioran gravemente la calidad del aire atmosférico.
+            </p>
+
+            <h2>Cifras globales de emisiones por RAEE</h2>
+            <table class="tabla-cifras">
+                <thead>
+                    <tr>
+                        <th>Indicador Atmosférico</th>
+                        <th>Cifra Registrada</th>
+                        <th>Impacto y Fuente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Emisiones globales de CO2 por RAEE no reciclado</strong></td>
+                        <td><span class="cifra-destacada">93 millones de toneladas anuales</span></td>
+                        <td>Generadas por la extracción de nuevos minerales y la quema informal de componentes. <em>(Fuente: UNITAR / ONU)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Liberación de gases refrigerantes (CFC/HFC)</strong></td>
+                        <td><span class="cifra-destacada">~5icina millones de toneladas eq-CO2</span></td>
+                        <td>Debido al mal manejo y disposición de sistemas de refrigeración y aires acondicionados obsoletos. <em>(Fuente: PNUMA)</em></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="fuente-tabla">Nota: Las quemas a cielo abierto en vertederos informales son la principal fuente de contaminación atmosférica local por dioxinas.</p>
+
+            <h2>Explora los factores de impacto atmosférico</h2>
+            <div class="tabs-botones">
+                <button class="tab-btn activo" onclick="mostrarTab('dioxinas', this)">🔥 Dioxinas y Furanos</button>
+                <button class="tab-btn" onclick="mostrarTab('refrigerantes', this)">❄️ Gases Refrigerantes</button>
+            </div>
+
+            <div id="dioxinas" class="tab-panel activo">
+                <strong>Dioxinas y Furanos:</strong>
+                <p style="margin-top: 8px; margin-bottom: 0;">Al quemar plásticos con PVC en los cables, se generan compuestos orgánicos persistentes altamente cancerígenos que permanecen en el aire.</p>
+            </div>
+
+            <div id="refrigerantes" class="tab-panel">
+                <strong>Gases Refrigerantes:</strong>
+                <p style="margin-top: 8px; margin-bottom: 0;">El desmantelamiento sin control de electrodomésticos libera gases con un potencial de calentamiento global miles de veces superior al del dióxido de carbono.</p>
+            </div>
+        </main>
+
+        <aside class="columna-derecha">
+            <h3 class="titulo-noticias">Noticias de Actualidad</h3>
+            <a href="https://www.who.int/news-room/fact-sheets/detail/electronic-waste-%28e-waste%29" target="_blank" rel="noopener noreferrer" class="card-noticia-lateral">
+                <img src="cha.jpg" alt="Calidad del aire">
+                <h4>OMS: Contaminacion de residuos electrónicos</h4>
+                <span>Leer noticia completa →</span>
+            </a>
+
+            <a href=" https://www.unep.org/en/news-and-stories/story/electronic-waste-surges-countries-look-answers" target="_blank" rel="noopener noreferrer" class="card-noticia-lateral">
+                <img src="la.jpg" alt="cambioclimatico">
+                <h4>OMS:Ante el aumento vertiginoso de los residuos electrónicos, los países buscan respuestas.</h4>
+                <span>Leer noticia completa →</span>
+        </aside>
+    </div>
+S
+    <script>
+        function mostrarTab(idPanel, boton) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('activo'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('activo'));
+            document.getElementById(idPanel).classList.add('activo');
+            boton.classList.add('activo');
+        }
+    </script>
+</body>
+</html>

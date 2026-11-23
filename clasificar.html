@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Clasificar E-WASTE - EPISI</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body { 
+            background-color: #f8fafc; 
+            color: #1e293b; 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .layout-dividido {
+            display: flex; gap: 40px; width: 94%; max-width: 1600px;
+            margin: 30px auto; align-items: flex-start;
+        }
+        .columna-izquierda { width: 75%; background: transparent; padding: 0 10px; }
+        .columna-derecha {
+            width: 25%; background: #ffffff; padding: 25px; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;
+            position: sticky; top: 25px;
+        }
+
+        h1 { color: #0f172a; font-size: 2.3rem; margin-bottom: 20px; margin-top: 0; font-weight: 800; }
+        h2 { color: #0284c7; font-size: 1.5rem; margin-top: 35px; margin-bottom: 18px; }
+        .titulo-noticias { color: #0f172a; font-size: 1.2rem; margin-bottom: 18px; border-bottom: 2px solid #38bdf8; padding-bottom: 8px; }
+        p { font-size: 1.08rem; color: #475569; line-height: 1.8; margin-bottom: 20px; }
+
+        .img-destacada { width: 100%; height: 380px; object-fit: cover; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); }
+
+        /* Sistema interactivo de pestañas con colores diferenciados (Azul, Ámbar, Índigo) */
+        .tabs-clasificacion { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tab-btn {
+            background: #e2e8f0; border: none; padding: 12px 20px; border-radius: 8px;
+            font-weight: 700; color: #334155; cursor: pointer; transition: all 0.3s;
+        }
+        .tab-btn.activo-azul { background: #0284c7; color: #ffffff; }
+        .tab-btn.activo-ambar { background: #d97706; color: #ffffff; }
+        .tab-btn.activo-indigo { background: #4f46e5; color: #ffffff; }
+        
+        .panel-clasificacion {
+            background: #ffffff; padding: 25px; border-radius: 12px;
+            border: 1px solid #cbd5e1; display: none; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .panel-clasificacion.activo { display: block; }
+
+        /* Botón de llamada a la acción hacia Receptores en Chimbote */
+        .cta-box {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: white; padding: 25px; border-radius: 12px; margin: 35px 0;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.25);
+        }
+        .cta-box h3 { margin: 0 0 8px 0; font-size: 1.3rem; color: #ffffff; }
+        .cta-box p { margin: 0; color: #e0f2fe; font-size: 1rem; }
+        .btn-chimbote {
+            background: #ffffff; color: #0369a1; padding: 12px 24px; border-radius: 8px;
+            font-weight: 800; text-decoration: none; transition: transform 0.2s, background 0.2s;
+            white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .btn-chimbote:hover { background: #f0f9ff; transform: scale(1.05); }
+
+        .card-noticia-lateral {
+            display: block; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 12px; margin-bottom: 16px; text-decoration: none; color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-noticia-lateral:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); border-color: #38bdf8; }
+        .card-noticia-lateral img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+        .card-noticia-lateral h4 { font-size: 0.95rem; color: #0f172a; margin: 0 0 6px 0; line-height: 1.35; }
+        .card-noticia-lateral span { font-size: 0.8rem; color: #0284c7; font-weight: 600; }
+
+        @media (max-width: 992px) {
+            .layout-dividido { flex-direction: column; width: 95%; }
+            .columna-izquierda, .columna-derecha { width: 100%; }
+            .columna-derecha { position: static; margin-top: 30px; }
+            .cta-box { flex-direction: column; text-align: center; gap: 15px; }
+            .img-destacada { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar" style="position: relative;">
+        <div class="logo"><a href="pre_aplicacion.html">♻️  RC/e-waste-UNS EPISIE <span>EPISI</span></a></div>
+        <div class="boton-nav"><a href="pre_aplicacion.html" class="btn-outline">← Volver al Inicio</a></div>
+    </header>
+
+    <div class="layout-dividido">
+        <main class="columna-izquierda">
+            <h1>Cómo clasificar los residuos electrónicos (RAEE)</h1>
+            
+            <img src="clasificacion-raee.jpg" alt="Clasificación correcta de aparatos eléctricos" class="img-destacada">
+
+            <p>
+                Una correcta clasificación en origen es el primer paso indispensable para garantizar un reciclaje eficiente. Los residuos electrónicos no deben mezclarse con los residuos domiciliarios comunes debido a la heterogeneidad de sus materiales y componentes peligrosos.
+            </p>
+
+            <h2>Selecciona una categoría para ver su clasificación técnica:</h2>
+            
+            <div class="tabs-clasificacion">
+                <button class="tab-btn activo-azul" onclick="cambiarTab('linea-gris', this, 'activo-azul')">💻 Línea Gris (Informática)</button>
+                <button class="tab-btn" onclick="cambiarTab('linea-marron', this, 'activo-ambar')">📺 Línea Marrón (Audio/Video)</button>
+                <button class="tab-btn" onclick="cambiarTab('linea-blanca', this, 'activo-indigo')">❄️ Línea Blanca (Electrodomésticos)</button>
+            </div>
+
+            <div id="linea-gris" class="panel-clasificacion activo">
+                <h3 style="color: #0284c7; margin-top:0;">Línea Gris: Equipos de Informática y Telecomunicaciones</h3>
+                <p>Incluye computadoras de escritorio, laptops, tablets, impresoras, servidores, teléfonos celulares, routers y accesorios periféricos.</p>
+                <p style="margin-bottom:0;"><strong>Estrategia de reciclaje:</strong> Poseen alta concentración de tarjetas de circuito impreso con metales preciosos (oro, plata, paladio) y plásticos de ingeniería recuperables mediante procesos de fragmentación mecánica.</p>
+            </div>
+
+            <div id="linea-marron" class="panel-clasificacion">
+                <h3 style="color: #d97706; margin-top:0;">Línea Marrón: Aparatos de Electrónica de Consumo</h3>
+                <p>Comprende televisores (LED, LCD, CRT), equipos de sonido, reproductores de video, consolas de videojuegos y cámaras digitales.</p>
+                <p style="margin-bottom:0;"><strong>Estrategia de reciclaje:</strong> Requieren un manejo especial debido a la presencia de tubos de rayos catódicos con plomo y tarjetas con soldaduras de estaño-plomo que exigen desarme manual especializado.</p>
+            </div>
+
+            <div id="linea-blanca" class="panel-clasificacion">
+                <h3 style="color: #4f46e5; margin-top:0;">Línea Blanca: Grandes Electrodomésticos</h3>
+                <p>Abarca refrigeradoras, congeladoras, lavadoras, secadoras, aires acondicionados y cocinas eléctricas.</p>
+                <p style="margin-bottom:0;"><strong>Estrategia de reciclaje:</strong> Destacan por su gran volumen metálico (acero y hierro) y la necesidad crítica de extraer y neutralizar fluidos refrigerantes y espumas aislantes dañinas para la capa de ozono.</p>
+            </div>
+
+            <div class="cta-box">
+                <div>
+                    <h3>¿Ya tienes identificados tus equipos?</h3>
+                    <p>Ubica las empresas formales e instituciones autorizadas que reciben RAEE en Chimbote.</p>
+                </div>
+                <a href="receptores-chimbote.html" class="btn-chimbote">Ver Receptores en Chimbote →</a>
+            </div>
+        </main>
+
+        <aside class="columna-derecha">
+            <h3 class="titulo-noticias">Guías y Normativa</h3>
+            <a href="https://www.bbva.com/es/sostenibilidad/el-gran-desafio-de-la-basura-tecnologica-donde-va-a-parar-y-como-reciclarla/" target="_blank" rel="noopener noreferrer" class="card-noticia-lateral">
+                <img src="qes.avif" alt="Clasificación de residuos">
+                <h4>El gran desafío de la basura electrónica: dónde va a parar y cómo reciclarla</h4>
+                <span>Leer guía completa →</span>
+            </a>
+        </aside>
+    </div>
+
+    <script>
+        function cambiarTab(idPanel, boton, claseActiva) {
+            document.querySelectorAll('.panel-clasificacion').forEach(p => p.classList.remove('activo'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.className = 'tab-btn';
+            });
+            document.getElementById(idPanel).classList.add('activo');
+            boton.classList.add(claseActiva);
+        }
+    </script>
+</body>
+</html>

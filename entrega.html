@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparación y Entrega Segura de E-WASTE - EPISI</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body { 
+            background-color: #f5f3ff; 
+            color: #1e293b; 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .layout-dividido {
+            display: flex; gap: 40px; width: 94%; max-width: 1600px;
+            margin: 30px auto; align-items: flex-start;
+        }
+        .columna-izquierda { width: 75%; background: transparent; padding: 0 10px; }
+        .columna-derecha {
+            width: 25%; background: #ffffff; padding: 25px; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;
+            position: sticky; top: 25px;
+        }
+
+        h1 { color: #5b21b6; font-size: 2.3rem; margin-bottom: 20px; margin-top: 0; font-weight: 800; }
+        h2 { color: #7c3aed; font-size: 1.5rem; margin-top: 35px; margin-bottom: 18px; }
+        .titulo-noticias { color: #5b21b6; font-size: 1.2rem; margin-bottom: 18px; border-bottom: 2px solid #c4b5fd; padding-bottom: 8px; }
+        p { font-size: 1.08rem; color: #475569; line-height: 1.8; margin-bottom: 20px; }
+
+        .img-destacada { width: 100%; height: 380px; object-fit: cover; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); }
+
+        /* Pasos interactivos estilo tarjeta en tonos púrpuras */
+        .grid-pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 25px; }
+        .paso-card {
+            background: #ffffff; border: 2px solid #e9d5ff; border-radius: 12px;
+            padding: 20px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+            transition: transform 0.25s, border-color 0.25s;
+        }
+        .paso-card:hover { border-color: #7c3aed; transform: translateY(-4px); }
+        .paso-num {
+            background: #7c3aed; color: white; width: 35px; height: 35px;
+            display: flex; align-items: center; justify-content: center; border-radius: 50%;
+            margin: 0 auto 12px auto; font-weight: 800; font-size: 1.1rem;
+        }
+        .paso-card h4 { color: #5b21b6; margin: 0 0 10px 0; font-size: 1.1rem; }
+        .paso-card p { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.5; }
+
+        /* Botón CTA Chimbote */
+        .cta-box {
+            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+            color: white; padding: 25px; border-radius: 12px; margin: 35px 0;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
+        }
+        .cta-box h3 { margin: 0 0 8px 0; font-size: 1.3rem; color: #ffffff; }
+        .cta-box p { margin: 0; color: #ede9fe; font-size: 1rem; }
+        .btn-chimbote {
+            background: #ffffff; color: #5b21b6; padding: 12px 24px; border-radius: 8px;
+            font-weight: 800; text-decoration: none; transition: transform 0.2s, background 0.2s;
+            white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .btn-chimbote:hover { background: #f5f3ff; transform: scale(1.05); }
+
+        .card-noticia-lateral {
+            display: block; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 12px; margin-bottom: 16px; text-decoration: none; color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-noticia-lateral:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); border-color: #a78bfa; }
+        .card-noticia-lateral img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+        .card-noticia-lateral h4 { font-size: 0.95rem; color: #0f172a; margin: 0 0 6px 0; line-height: 1.35; }
+        .card-noticia-lateral span { font-size: 0.8rem; color: #7c3aed; font-weight: 600; }
+
+        @media (max-width: 992px) {
+            .layout-dividido { flex-direction: column; width: 95%; }
+            .columna-izquierda, .columna-derecha { width: 100%; }
+            .columna-derecha { position: static; margin-top: 30px; }
+            .grid-pasos { grid-template-columns: 1fr; }
+            .cta-box { flex-direction: column; text-align: center; gap: 15px; }
+            .img-destacada { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar" style="position: relative;">
+        <div class="logo"><a href="pre_aplicacion.html">♻️ RC/e-waste-UNS EPISI<span>EPISI</span></a></div>
+        <div class="boton-nav"><a href="pre_aplicacion.html" class="btn-outline">← Volver al Inicio</a></div>
+    </header>
+
+    <div class="layout-dividido">
+        <main class="columna-izquierda">
+            <h1>Preparación y entrega segura de tus RAEE</h1>
+            
+            <img src="entrega-raee.jpg" alt="Entrega de residuos electrónicos en puntos de acopio" class="img-destacada">
+
+            <p>
+                Para que los aparatos en desuso puedan ser valorizados de forma efectiva por las empresas autorizadas, es necesario preparar adecuadamente los dispositivos antes de entregarlos en los puntos de acopio o solicitar su recolección institucional.
+            </p>
+
+            <h2>Guía de 3 pasos para una entrega responsable:</h2>
+
+            <div class="grid-pasos">
+                <div class="paso-card">
+                    <div class="paso-num">1</div>
+                    <h4>Resguardo de Datos</h4>
+                    <p>Realiza una copia de seguridad de tu información personal y restablece los equipos a modo de fábrica para proteger tu privacidad.</p>
+                </div>
+
+                <div class="paso-card">
+                    <div class="paso-num">2</div>
+                    <h4>Agrupación por Lotes</h4>
+                    <p>Reúne los cables, cargadores y accesorios junto al equipo principal en cajas o bolsas etiquetadas para facilitar su recepción.</p>
+                </div>
+
+                <div class="paso-card">
+                    <div class="paso-num">3</div>
+                    <h4>Entrega a Operador</h4>
+                    <p>Lleva los dispositivos directamente a un punto de acopio autorizado o programa su entrega con una entidad formal.</p>
+                </div>
+            </div>
+
+            <!-- ENLACE DIRECTO A RECEPTORES EN CHIMBOTE -->
+            <div class="cta-box">
+                <div>
+                    <h3>¿Listo para reciclar tus equipos?</h3>
+                    <p>Consulta el directorio completo de centros de acopio y receptores oficiales en Chimbote.</p>
+                </div>
+                <a href="receptores-chimbote.html" class="btn-chimbote">Ver Receptores en Chimbote →</a>
+            </div>
+        </main>
+
+        <aside class="columna-derecha">
+            <h3 class="titulo-noticias">Campañas y Logística</h3>
+            <a href="https://www.gob.pe/institucion/minam/campa%C3%B1as/123696-trae-tu-raee-recicla-tus-residuos-de-aparatos-electricos-y-electronicos" target="_blank" rel="noopener noreferrer" class="card-noticia-lateral">
+                <img src="ba.jpeg" alt="Acopio de RAEE">
+                <h4>Trae tu RAEE, recicla tus residuos de aparatos eléctricos y electrónicos</h4>
+                <span>Leer noticia completa →</span>
+            </a>
+        </aside>
+    </div>
+</body>
+</html>

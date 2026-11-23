@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puntos de Acopio - RC/e-waste-UNS</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            background-color: #f4f7f6;
+            color: #1e293b;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .contenedor-acopio {
+            width: 92%;
+            max-width: 1150px;
+            margin: 45px auto;
+            padding: 10px;
+        }
+
+        /* Introducción superior */
+        .introduccion-acopio {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 55px auto;
+        }
+
+        .etiqueta-ciudad {
+            display: inline-block;
+            background-color: #d8f3dc;
+            color: #1b4332;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .introduccion-acopio h1 {
+            color: #1b4332;
+            font-size: 2.1rem;
+            margin: 0 0 15px 0;
+            font-weight: 800;
+        }
+
+        .introduccion-acopio p {
+            color: #475569;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Diseño Zigzag (Alternando Izquierda y Derecha) */
+        .fila-zigzag {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+            margin-bottom: 65px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Invierte el orden para el Punto 2 (Imagen Izquierda, Texto Derecha) */
+        .fila-zigzag.invertida {
+            flex-direction: row-reverse;
+        }
+
+        .columna-texto {
+            flex: 1;
+        }
+
+        .numero-punto {
+            background-color: #1b4332;
+            color: #ffffff;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .columna-texto h2 {
+            color: #0f172a;
+            font-size: 1.5rem;
+            margin: 0 0 14px 0;
+            line-height: 1.35;
+        }
+
+        .direccion-punto {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .btn-google-maps {
+            background-color: #0284c7;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 13px 22px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .btn-google-maps:hover {
+            background-color: #0369a1;
+            transform: translateY(-2px);
+        }
+
+        .columna-imagen {
+            flex: 1;
+        }
+
+        .columna-imagen img {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            display: block;
+        }
+
+        /* Sección Final con Imagen de Fondo (Sin cuadro cerrado) */
+        .seccion-final-fondo {
+            position: relative;
+            width: 100%;
+            padding: 75px 20px;
+            text-align: center;
+            color: #ffffff;
+            /* Reemplaza 'fondo-banner.jpg' por el nombre de tu imagen descargada */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.72)), url('fondo-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            box-sizing: border-box;
+            margin-top: 40px;
+        }
+
+        .seccion-final-fondo p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.4;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsivo para celulares y tablets */
+        @media (max-width: 850px) {
+            .fila-zigzag, .fila-zigzag.invertida {
+                flex-direction: column;
+                padding: 24px;
+                gap: 25px;
+            }
+            .columna-imagen img {
+                height: 220px;
+            }
+            .seccion-final-fondo p {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="navbar" style="position: relative;">
+        <div class="logo"><a href="pre_aplicacion.html">♻️ RC/e-waste-UNS <span>EPISI</span></a></div>
+        <div class="boton-nav"><a href="pre_aplicacion.html" class="btn-outline">← Volver al Inicio</a></div>
+    </header>
+
+    <main class="contenedor-acopio">
+
+        <!-- Introducción -->
+        <section class="introduccion-acopio">
+            <span class="etiqueta-ciudad">📍 Chimbote, Áncash</span>
+            <h1>Centros Autorizados de Reciclaje Electrónico</h1>
+            <p>
+                En la ciudad de Chimbote, existen 3 puntos de acopio muy relevantes e importantes, los cuales son los siguientes:
+            </p>
+        </section>
+
+        <!-- PUNTO 1: Texto a la IZQUIERDA, Imagen a la DERECHA -->
+        <article class="fila-zigzag">
+            <div class="columna-texto">
+                <div class="numero-punto">1</div>
+                <h2>Punto de acopio RAEE Claro - Centro de Atención al Cliente</h2>
+                <p class="direccion-punto">
+                    <span>📌</span>
+                    <span>Av. Panamericana N 100, Chimbote 02803</span>
+                </p>
+                <a href="https://maps.app.goo.gl/qXYvFuE82jJYoDyKA" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-google-maps">
+                    🗺️ Ver ubicación en Google Maps
+                </a>
+            </div>
+            <div class="columna-imagen">
+                <!-- Reemplaza 'punto1.jpg' con la foto del primer local -->
+                <img src="RAEE-C.png" alt="Punto de acopio RAEE Claro Chimbote">
+            </div>
+        </article>
+
+        <!-- PUNTO 2: Imagen a la IZQUIERDA, Texto a la DERECHA (Clase 'invertida') -->
+        <article class="fila-zigzag invertida">
+            <div class="columna-texto">
+                <div class="numero-punto">2</div>
+                <h2>Centro Comercial MegaPlaza Chimbote (Módulos RAEE)</h2>
+                <p class="direccion-punto">
+                    <span>📌</span>
+                    <span>Av. Víctor Raúl Haya de la Torre (Carretera Panamericana Norte), Villa María - Chimbote</span>
+                </p>
+                <a href="https://maps.app.goo.gl/uJPBExeGUDbNwsr98" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-google-maps">
+                    🗺️ Ver ubicación en Google Maps
+                </a>
+            </div>
+            <div class="columna-imagen">
+                
+                <img src="MegaPlaza-A.jpg" alt="Segundo punto de acopio en Chimbote">
+            </div>
+        </article>
+
+       
+        <article class="fila-zigzag">
+            <div class="columna-texto">
+                <div class="numero-punto">3</div>
+                <h2>Municipalidad Distrital de Nuevo Chimbote</h2>
+                <p class="direccion-punto">
+                    <span>📌</span>
+                    <span>Centro Cívico - Av. Pacífico s/n, Urb. Buenos Aires, Nuevo Chimbote</span>
+                </p>
+                <a href="https://maps.app.goo.gl/23JWRGELt82f4pBz6" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-google-maps">
+                    🗺️ Ver ubicación en Google Maps
+                </a>
+            </div>
+            <div class="columna-imagen">
+                
+                <img src="mnc.webp" alt="Tercer punto de acopio en Chimbote">
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Mensaje final de ancho completo con imagen de fondo (fuera del contenedor) -->
+    <section class="seccion-final-fondo">
+        <p>🌱 ¿Qué esperas? Acércate a los puntos de acopio y deja tus residuos electrónicos</p>
+    </section>
+
+</body>
+</html>
